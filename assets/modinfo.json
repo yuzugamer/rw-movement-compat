@@ -1,0 +1,11 @@
+{
+  "id": "yuzugamer.meadowrocks",
+  "name": "Meadow Rocks",
+  "version": "1.0.0",
+  "hide_version": true,
+  "authors": "yuzugamer",
+  "description": "Spawn a rock in the Meadow game mode using the Special key",
+  "requirements": ["henpemaz_rainmeadow"],
+  "requirements_names": ["Rain Meadow"],
+  "tags": [ "Items", "Base", "Downpour", "Watcher" ]
+}
