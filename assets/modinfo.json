@@ -1,11 +1,10 @@
 {
-  "id": "yuzugamer.meadowrocks",
-  "name": "Meadow Rocks",
+  "id": "movementmodmeadowcompat",
+  "name": "Meadow Compat for Movement Mods",
   "version": "1.0.0",
-  "hide_version": true,
   "authors": "yuzugamer",
-  "description": "Spawn a rock in the Meadow game mode using the Special key",
-  "requirements": ["henpemaz_rainmeadow"],
-  "requirements_names": ["Rain Meadow"],
-  "tags": [ "Items", "Base", "Downpour", "Watcher" ]
+  "description": "Adds meadow compatibility for certain movement/input-tracking mods, which tend to function inconsistently in meadow lobbies",
+  "priorities": [ "henpemaz_rainmeadow", "movementmarker", "slime-cubed.inputdisplay", "alphappy.inputlog" ],
+  "tags": [ "Accessibility", "Base", "Downpour", "Watcher" ],
+  "checksum_override_version": true
 }

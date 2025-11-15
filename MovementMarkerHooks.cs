@@ -20,18 +20,9 @@ public static class MovementMarkerHooks
 
     public static Player GetOnlinePlayer(Player orig)
     {
-        if (OnlineManager.lobby != null && OnlineManager.lobby.playerAvatars != null)
+        if (OnlineManager.lobby != null && OnlineManager.lobby.gameMode.avatars != null && OnlineManager.lobby.gameMode.avatars.Count > 0)
         {
-            OnlineEntity.EntityId avatar = null;
-            foreach (var kvp in OnlineManager.lobby.playerAvatars)
-            {
-                if (kvp.Key == OnlineManager.mePlayer)
-                {
-                    avatar = kvp.Value;
-                    break;
-                }
-            }
-            if (avatar != null && avatar.FindEntity() is OnlineCreature oc && oc.realizedCreature != null && oc.realizedCreature is Player player)
+            if (OnlineManager.lobby.gameMode.avatars[0] is OnlineCreature oc && oc.realizedCreature != null && oc.realizedCreature is Player player)
             {
                 return player;
             }
@@ -58,7 +49,7 @@ public static class MovementMarkerHooks
         }
         catch (Exception ex)
         {
-            UnityEngine.Debug.LogException(ex);
+            MovementMeadowCompat.LogError(ex);
         }
     }
 }

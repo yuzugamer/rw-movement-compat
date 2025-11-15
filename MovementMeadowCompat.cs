@@ -3,6 +3,7 @@ using System.Security.Permissions;
 using BepInEx;
 using System;
 using System.Linq;
+using BepInEx.Logging;
 
 #pragma warning disable CS0618
 
@@ -16,9 +17,11 @@ namespace MovementMeadowCompat;
 public class MovementMeadowCompat : BaseUnityPlugin
 {
     private static bool init;
+    internal static MovementMeadowCompat instance;
 
     public void OnEnable()
     {
+        instance = this;
         On.RainWorld.PostModsInit += On_RainWorld_PostModsInit;
     }
 
@@ -50,9 +53,14 @@ public class MovementMeadowCompat : BaseUnityPlugin
             }
             catch (Exception ex)
             {
-                UnityEngine.Debug.LogError("Movement mod meadow compat failed to load!");
-                UnityEngine.Debug.LogException(ex);
+                LogError("Movement mod meadow compat failed to load!");
+                LogError(ex);
             }
         }
+    }
+
+    public static void LogError(object error)
+    {
+        instance.Logger.LogError(error);
     }
 }
